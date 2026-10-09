@@ -28,7 +28,7 @@ Pełny opis: [docs/pl/FUNKCJE.md](docs/pl/FUNKCJE.md) (po angielsku: [docs/FEATU
 
 ## Wymagania
 
-- **Node.js ≥ 22** (z npm). Nic więcej — SQLite jest wbudowane w aplikację (moduł natywny `better-sqlite3` pobiera gotowe pliki binarne lub kompiluje się przy `npm install`).
+- **Node.js ≥ 22** (wystarczy npm dołączony do Node: Node 22 → npm 10, Node 24 → npm 11). Nic więcej — SQLite jest wbudowane w aplikację (moduł natywny `better-sqlite3` pobiera gotowe pliki binarne lub kompiluje się przy `npm install`).
 
 ## Szybki start
 
@@ -41,7 +41,7 @@ npm run dev              # backend :3000 + frontend :5173 (z przeładowaniem)
 
 Otwórz http://localhost:5173 i zaloguj się: **`admin` / `admin`** (domyślne dane — **zmień je**, patrz niżej).
 Migracje bazy stosują się same przy starcie serwera, a plik bazy powstaje w `data/todo.db`. Konfigurację zmienia się w pliku `.env`
-(skopiuj wzór: `cp .env.example .env`, w PowerShellu `Copy-Item .env.example .env`) — bez niego działają sensowne wartości domyślne.
+(skopiuj wzór: `cp .env.example .env` w Git Bashu/Linuksie/macOS, `Copy-Item .env.example .env` w PowerShellu) — bez niego działają sensowne wartości domyślne.
 
 Dane demonstracyjne (po polsku): `npm run seed:demo` (na uruchomionym serwerze dev).
 
@@ -69,31 +69,43 @@ Otwórz http://localhost:3000.
 
 Najprostszy sposób, żeby TodoFrenzy działał na stałe na domowym serwerze (Windows z Docker Desktop, Linux lub NAS). Wymaga Dockera z Compose v2.24 lub nowszym (aktualny Docker Desktop wystarcza).
 
+Na serwerze nie potrzebujesz do tego Node.js ani npm — obraz ma własne. Polecenia wykonuj w dowolnym folderze (klonowanie utworzy w nim folder `TodoFrenzy`), w PowerShellu, Git Bashu albo innej powłoce.
+
 ```bash
 git clone https://github.com/infobotsteven/TodoFrenzy.git
 cd TodoFrenzy
-cp .env.example .env     # PowerShell: Copy-Item .env.example .env
 ```
 
-1. **Zedytuj `.env`:**
-   - ustaw port na serwerze: `TODOFRENZY_PORT=3100` (odkomentuj linię; domyślnie **3100**, żeby nie kolidować z czymś, co już używa portu 3000),
-   - ustaw własne hasło zamiast `admin`/`admin`: wygeneruj hash poleceniem
-     `docker compose run --rm app node server/dist/auth-hash-cli.js "twojeHaslo"`
-     i wklej wypisaną linijkę `AUTH_PASSWORD_HASH='...'` do `.env` (zostaw apostrofy).
-2. **Uruchom:**
+Utwórz plik ustawień ze wzoru — **jedno** z poleceń, zależnie od powłoki:
+
+```bash
+cp .env.example .env              # Git Bash, Linux, macOS
+```
+```powershell
+Copy-Item .env.example .env       # PowerShell
+```
+
+1. **Zbuduj i uruchom:**
    ```bash
    docker compose up -d --build
    ```
-   Pierwsze budowanie trwa kilka minut. Sprawdź `docker compose ps` (stan powinien zmienić się na `healthy`) oraz `docker compose logs`.
-3. **Otwórz:** `http://<IP-serwera>:3100` z dowolnego urządzenia w sieci i zaloguj się.
-4. **Tylko Windows:** jednorazowo zezwól na port w zaporze (PowerShell jako administrator):
+   Pierwsze budowanie trwa kilka minut. Sprawdź `docker compose ps` (stan powinien zmienić się na `healthy`) oraz `docker compose logs`. Już teraz aplikacja działa z domyślnym logowaniem `admin` / `admin`.
+2. **Otwórz:** `http://<IP-serwera>:3100` z dowolnego urządzenia w sieci i zaloguj się. (Adres IP serwera: `ipconfig` w Windows, `hostname -I` w Linuksie.)
+3. **Ustaw własne hasło** (zanim ktoś inny zacznie używać aplikacji):
+   ```bash
+   docker compose run --rm app node server/dist/auth-hash-cli.js 'twojeHaslo'
+   ```
+   Hasło podaj w apostrofach, żeby powłoka nie interpretowała znaków specjalnych. Polecenie wypisze linijkę `AUTH_PASSWORD_HASH='...'` — wklej ją razem z apostrofami do `.env` (**nie** odkomentowuj przykładowej linii z kropkami, dopisz swoją prawdziwą). Zastosuj zmianę poleceniem `docker compose up -d`. Stare logowanie `admin`/`admin` przestanie działać, a wszyscy zostaną wylogowani.
+4. **Opcjonalnie: inny port.** Domyślnie aplikacja słucha na porcie **3100** serwera (żeby nie kolidować z czymś, co używa 3000). Aby go zmienić, odkomentuj i zmień `TODOFRENZY_PORT=3100` w `.env`, potem `docker compose up -d`. Nic więcej w `.env` nie wymaga zmian pod Dockera (`HOST`, `PORT` i `DATABASE_PATH` ustawia `docker-compose.yml`).
+5. **Tylko Windows:** jednorazowo zezwól na port w zaporze (PowerShell jako administrator; wpisz swój port, jeśli go zmieniłeś):
    ```powershell
    New-NetFirewallRule -DisplayName "TodoFrenzy" -Direction Inbound -Protocol TCP -LocalPort 3100 -Profile Private -Action Allow
    ```
    Zarezerwuj też stały adres IP serwera w routerze i włącz *Start Docker Desktop when you sign in*, żeby kontener wracał po restarcie (resztę załatwia `restart: unless-stopped`).
 
 Jak przechowywane są dane:
-- Baza leży w wolumenie Dockera `todofrenzy_data` i przetrwa przebudowy oraz aktualizacje. (Wolumen zarządzany przez Dockera jest celowy: SQLite w trybie WAL bywa zawodny na katalogach z dysku Windows.)
+- Baza leży w wolumenie Dockera `todofrenzy_data` (w kontenerze: `/app/data/todo.db`) i przetrwa restarty, przebudowy oraz aktualizacje. Wolumen zarządzany przez Dockera jest celowy: SQLite w trybie WAL bywa zawodny na katalogach z dysku Windows. Pliku nie zobaczysz w Eksploratorze; aby go wyciągnąć, zrób kopię zapasową (niżej).
+- Dane giną **tylko** po usunięciu wolumenu: `docker compose down -v`, usunięcie `todofrenzy_data` w Docker Desktop (*Volumes*), `docker system prune --volumes` albo reset/odinstalowanie Docker Desktop. Zwykłe `docker compose down` / `stop` / `restart` i aktualizacje go zachowują.
 - Kopie zapasowe trafiają do katalogu `backups/` obok `docker-compose.yml`:
   ```bash
   docker compose exec app node server/dist/backup-cli.js

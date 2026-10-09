@@ -28,7 +28,7 @@ Full description: [docs/FEATURES.md](docs/FEATURES.md).
 
 ## Requirements
 
-- **Node.js ≥ 22** (with npm). Nothing else — SQLite is embedded (the native `better-sqlite3` module downloads a prebuilt binary or compiles during `npm install`).
+- **Node.js ≥ 22** (the npm that ships with it is enough: Node 22 → npm 10, Node 24 → npm 11). Nothing else — SQLite is embedded (the native `better-sqlite3` module downloads a prebuilt binary or compiles during `npm install`).
 
 ## Quick start
 
@@ -41,7 +41,7 @@ npm run dev              # backend :3000 + frontend :5173 (with hot reload)
 
 Open http://localhost:5173 and log in with **`admin` / `admin`** (the default credentials — **change them**, see below).
 Database migrations are applied automatically on server start and the database file is created at `data/todo.db`. Configuration lives in a `.env` file
-(copy the template: `cp .env.example .env`, in PowerShell `Copy-Item .env.example .env`) — without it, sensible defaults apply.
+(copy the template: `cp .env.example .env` in Git Bash/Linux/macOS, `Copy-Item .env.example .env` in PowerShell) — without it, sensible defaults apply.
 
 Demo data (in Polish): `npm run seed:demo` (against a running dev server).
 
@@ -69,31 +69,43 @@ Then open http://localhost:3000.
 
 The easiest way to run TodoFrenzy permanently on a home server (Windows with Docker Desktop, Linux or a NAS). Requires Docker with Compose v2.24 or newer (current Docker Desktop is fine).
 
+You do not need Node.js or npm on the server for this — the image brings its own. Run the commands in any folder you like (the clone creates a `TodoFrenzy` folder there), in PowerShell, Git Bash or any other shell.
+
 ```bash
 git clone https://github.com/infobotsteven/TodoFrenzy.git
 cd TodoFrenzy
-cp .env.example .env     # PowerShell: Copy-Item .env.example .env
 ```
 
-1. **Edit `.env`:**
-   - set the port on the host with `TODOFRENZY_PORT=3100` (uncomment the line; the default is **3100**, so it does not clash with something else already using port 3000),
-   - set your own password instead of `admin`/`admin`: generate a hash with
-     `docker compose run --rm app node server/dist/auth-hash-cli.js "yourPassword"`
-     and paste the printed `AUTH_PASSWORD_HASH='...'` line into `.env` (keep the single quotes).
-2. **Start it:**
+Create your settings file from the template — **one** of these, depending on the shell:
+
+```bash
+cp .env.example .env              # Git Bash, Linux, macOS
+```
+```powershell
+Copy-Item .env.example .env       # PowerShell
+```
+
+1. **Build and start it:**
    ```bash
    docker compose up -d --build
    ```
-   The first build takes a few minutes. Check it with `docker compose ps` (the state should become `healthy`) and `docker compose logs`.
-3. **Open it:** `http://<server-IP>:3100` from any device on your network, and log in.
-4. **Windows only:** allow the port in the firewall once (PowerShell as administrator):
+   The first build takes a few minutes. Check it with `docker compose ps` (the state should become `healthy`) and `docker compose logs`. At this point the app already works with the default login `admin` / `admin`.
+2. **Open it:** `http://<server-IP>:3100` from any device on your network, and log in. (Find the server's IP with `ipconfig` on Windows or `hostname -I` on Linux.)
+3. **Set your own password** (do this before anyone else uses the app):
+   ```bash
+   docker compose run --rm app node server/dist/auth-hash-cli.js 'yourPassword'
+   ```
+   Put the password in single quotes so the shell does not interpret special characters. The command prints a line `AUTH_PASSWORD_HASH='...'` — paste it, with the quotes, into `.env` (do **not** uncomment the example line with the dots, add your real one). Then apply it with `docker compose up -d`. The old `admin`/`admin` login stops working and everyone is logged out.
+4. **Optional: another port.** The app listens on host port **3100** by default (so it does not clash with something already using 3000). To change it, uncomment and edit `TODOFRENZY_PORT=3100` in `.env`, then run `docker compose up -d`. Nothing else in `.env` needs changing for Docker (`HOST`, `PORT` and `DATABASE_PATH` are set by `docker-compose.yml`).
+5. **Windows only:** allow the port in the firewall once (PowerShell as administrator; use your port if you changed it):
    ```powershell
    New-NetFirewallRule -DisplayName "TodoFrenzy" -Direction Inbound -Protocol TCP -LocalPort 3100 -Profile Private -Action Allow
    ```
    Also reserve a fixed IP address for the server in your router, and turn on *Start Docker Desktop when you sign in* so the container comes back after a reboot (`restart: unless-stopped` does the rest).
 
 How the data is stored:
-- The database lives in the Docker volume `todofrenzy_data` and survives rebuilds and updates. (A Docker-managed volume is used on purpose: SQLite in WAL mode is unreliable on Windows host folders.)
+- The database lives in the Docker volume `todofrenzy_data` (inside the container: `/app/data/todo.db`) and survives restarts, rebuilds and updates. A Docker-managed volume is used on purpose: SQLite in WAL mode is unreliable on Windows host folders. The file is not visible in Explorer; to get it out, make a backup (below).
+- The data is lost **only** if you delete the volume: `docker compose down -v`, removing `todofrenzy_data` in Docker Desktop (*Volumes*), `docker system prune --volumes`, or resetting/uninstalling Docker Desktop. Plain `docker compose down` / `stop` / `restart` and updates keep it.
 - Backups go to the `backups/` folder next to `docker-compose.yml`:
   ```bash
   docker compose exec app node server/dist/backup-cli.js
