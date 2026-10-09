@@ -1,0 +1,55 @@
+{
+  "name": "todofrenzy",
+  "version": "0.1.0",
+  "description": "Shared projects, task lists and a calendar for a local network: self-hosted, SQLite, realtime, PL/EN.",
+  "private": true,
+  "license": "MIT",
+  "author": "infobotsteven",
+  "homepage": "https://github.com/infobotsteven/TodoFrenzy#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infobotsteven/TodoFrenzy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infobotsteven/TodoFrenzy/issues"
+  },
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "npm run build -w client && npm run build -w server",
+    "start": "npm run start -w server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "db:generate": "npm run db:generate -w server",
+    "db:migrate": "npm run db:migrate -w server",
+    "db:backup": "npm run db:backup -w server",
+    "lint": "eslint .",
+    "test:e2e": "npm run build && node e2e/run.mjs",
+    "seed:demo": "node e2e/seed-demo.mjs",
+    "lint:unused": "knip --no-progress",
+    "auth:hash": "npm run --silent auth:hash -w server --"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "better-sqlite3": "^12.11.1",
+    "concurrently": "^9.0.0",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "knip": "^6.41.0",
+    "playwright-core": "^1.63.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.71.1",
+    "ws": "^8.22.0"
+  },
+  "overrides": {
+    "shell-quote": "^1.12.0"
+  }
+}

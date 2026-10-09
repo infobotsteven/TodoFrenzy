@@ -1,0 +1,20 @@
+/* Style aplikacji - kolejność importów = kolejność kaskady, nie zmieniać bez sprawdzenia widoku. */
+@import './base.css';
+@import './layout.css';
+@import './controls.css';
+@import './cards.css';
+@import './lists-tasks.css';
+@import './users.css';
+@import './priorities-tags.css';
+@import './calendar.css';
+@import './list-view.css';
+@import './dnd.css';
+@import './color-picker.css';
+@import './modal-forms.css';
+@import './toasts.css';
+@import './responsive.css';
+@import './planner.css';
+@import './task-grid.css';
+@import './project-archive.css';
+@import './stats.css';
+@import './auth.css';

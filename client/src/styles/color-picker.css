@@ -1,0 +1,47 @@
+/* --- Wybór koloru --- */
+
+.color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.swatch {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: var(--accent, transparent);
+  cursor: pointer;
+}
+
+.swatch input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.swatch.none {
+  border: 2px dashed var(--muted-2);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.swatch:has(input:checked) {
+  box-shadow:
+    0 0 0 2px var(--surface),
+    0 0 0 0.25rem var(--accent, var(--muted));
+}
+
+.swatch:has(input:focus-visible) {
+  outline: 2px solid var(--brand);
+  outline-offset: 0.25rem;
+}

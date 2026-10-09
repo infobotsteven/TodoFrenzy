@@ -1,0 +1,83 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1791225973469,
+      "tag": "0000_wooden_shiver_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791227734986,
+      "tag": "0001_lame_moonstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791231930944,
+      "tag": "0002_mushy_star_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1791231943422,
+      "tag": "0003_pretty_masque",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1791314124076,
+      "tag": "0004_youthful_hellcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1791315454046,
+      "tag": "0005_lying_goliath",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1791317631245,
+      "tag": "0006_cynical_hellion",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1791321105840,
+      "tag": "0007_fast_lethal_legion",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1791393408140,
+      "tag": "0008_fresh_charles_xavier",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1791401902055,
+      "tag": "0009_foamy_karen_page",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1791455986814,
+      "tag": "0010_nasty_the_hunter",
+      "breakpoints": true
+    }
+  ]
+}

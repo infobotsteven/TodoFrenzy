@@ -1,0 +1,90 @@
+/* --- Listy i zadania --- */
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--surface-2);
+}
+
+.checklist[data-color] {
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface-2));
+}
+
+.checklist-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checklist-head h3 {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--fs-md);
+  overflow-wrap: anywhere;
+}
+
+.tasks {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  background: var(--surface);
+  border-radius: var(--radius-control);
+}
+
+.task-check {
+  flex: none;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin: 0.6875rem;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+
+.task-name {
+  flex: 1;
+  min-height: var(--tap);
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  /* min-width: 0 pozwala wąskiemu wierszowi zwęzić nazwę zamiast wypychać uchwyt i kosz poza obrys */
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.task-desc {
+  display: block;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+
+.task.done .task-name {
+  color: var(--muted-2);
+  text-decoration: line-through;
+}
+
+.add-task {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.add-task .btn {
+  width: var(--tap);
+  padding: 0;
+  font-size: var(--fs-icon);
+}

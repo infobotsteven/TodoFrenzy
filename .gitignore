@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Database and backups (user data - never commit)
+data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+backups/
+
+# Environment files (only .env.example is committed; it may contain login credentials in real setups)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Tools / tests
+coverage/
+.vite/
+
+# Editors and OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Private working notes - kept locally, not published
+# (AI-assistant instructions, local tool settings, project history, audits, original requirements, early mockup)
+CLAUDE.md
+.claude/
+PROJECT.md
+docs/HISTORIA.md
+docs/AUDYT.md
+docs/assets/

@@ -1,0 +1,127 @@
+/* --- Zarchiwizowane projekty --- */
+
+/* zakładki „Projekty / Archiwum” w nagłówku strony: rozmiar nagłówka strony zamiast tytułu sekcji */
+.page-tabs {
+  margin: 0;
+}
+
+/* Wspólny język „archiwum” dla projektów i zadań: ukośne kreskowanie, przerywana obwódka, wyszarzony kolor (pusta kropka, szary postęp), znaczek pudełka */
+:root {
+  --archive-hatch: repeating-linear-gradient(135deg, transparent 0 0.5rem, color-mix(in srgb, var(--muted) 9%, transparent) 0.5rem 0.5625rem);
+}
+
+.project-card.archived,
+.cal-task.archived-project {
+  border-style: dashed;
+  background: var(--archive-hatch), var(--surface-2);
+}
+
+.project-card.archived:hover {
+  box-shadow: none;
+  border-color: var(--muted-2);
+}
+
+.project-card.archived .card-title {
+  color: var(--muted);
+}
+
+.project-card.archived[data-color] .card-title::before {
+  background: transparent;
+  border: 0.125rem solid color-mix(in srgb, var(--accent) 55%, var(--muted-2));
+}
+
+.project-card.archived .progress-fill {
+  background: var(--muted-2);
+}
+
+.archive-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.archive-icon::before {
+  content: '';
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3' width='20' height='5' rx='1'/%3E%3Cpath d='M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* nagłówek strony zarchiwizowanego projektu: wyszarzony tytuł i pusta kropka (banner już informuje) */
+.project-head.archived h1 {
+  color: var(--muted);
+}
+
+.project-head.archived[data-color] h1::before {
+  box-sizing: border-box;
+  background: transparent;
+  border: 0.1875rem solid color-mix(in srgb, var(--accent) 55%, var(--muted-2));
+}
+
+/* przycisk „Przywróć” w prawym górnym rogu karty zarchiwizowanego projektu */
+.project-item > .card-restore {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.archived-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.archived-banner p {
+  margin: 0;
+}
+
+/* zadanie zarchiwizowanego projektu (kalendarz po włączeniu filtra, archiwum zadań): ten sam wygląd co karta archiwalnego projektu;
+   nazwa i kropki przygaszone, bez opacity (kreskowanie ma być czytelne tak samo jak na karcie projektu) */
+.cal-task.archived-project.overdue {
+  border-color: var(--border);
+}
+
+/* archiwalny projekt zachowuje słaby ślad swojego koloru (tło i przerywana obwódka), żeby nadal było widać, do którego projektu należy */
+.project-card.archived[data-color],
+.cal-task.archived-project[data-color] {
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+  background: var(--archive-hatch), color-mix(in srgb, var(--accent) 4%, var(--surface-2));
+}
+
+.cal-task.archived-project .cal-task-name,
+.cal-task.archived-project.archive-card .cal-task-name {
+  color: var(--muted);
+}
+
+.cal-task.archived-project .dot,
+.chip-archived .dot {
+  box-sizing: border-box;
+  background: transparent;
+  border: 0.125rem solid color-mix(in srgb, var(--accent, var(--muted-2)) 55%, var(--muted-2));
+}
+
+.cal-task.archived-project .badge {
+  opacity: 0.75;
+}
+
+.cal-task.archived-project .overdue-date {
+  color: var(--muted);
+}
+
+.chip-archived {
+  border-style: dashed;
+  background: var(--archive-hatch), var(--surface-2);
+}
+
+.chip-archived.chip-on {
+  border-color: var(--muted-2);
+  background: var(--archive-hatch), color-mix(in srgb, var(--muted) 14%, transparent);
+}
+
+.project-card.archived h2 {
+  padding-right: 6.5rem;
+}

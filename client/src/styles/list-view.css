@@ -1,0 +1,41 @@
+/* --- Przełącznik układu list --- */
+
+.view-toggle {
+  display: inline-flex;
+  padding: 0.1875rem;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+}
+
+.view-toggle-item {
+  position: relative;
+}
+
+.view-toggle-item input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.view-toggle-item span {
+  display: grid;
+  place-items: center;
+  min-height: 2.25rem;
+  padding: 0 0.875rem;
+  border-radius: var(--radius-control);
+  font-size: var(--fs-sm);
+}
+
+.view-toggle-item:has(input:checked) span {
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
+  font-weight: var(--fw-semibold);
+}
+
+.view-toggle-item:has(input:focus-visible) span {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}

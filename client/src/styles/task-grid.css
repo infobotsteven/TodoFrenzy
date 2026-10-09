@@ -1,0 +1,109 @@
+/* --- Siatka kart zadań: Zaległe, Bez terminu, Archiwum --- */
+
+.overdue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 0.75rem;
+}
+
+/* Karty w rzędzie mają tę samą wysokość, a termin i przycisk zawsze są na dole - siatka jest równa */
+.overdue-card {
+  align-items: stretch;
+  padding: 0.625rem 0.75rem;
+}
+
+.overdue-card .cal-check {
+  margin-top: 0.125rem;
+}
+
+.overdue-card .cal-task-body {
+  gap: 0.25rem;
+}
+
+.overdue-card .cal-task-name {
+  font-size: var(--fs-base);
+  line-height: var(--lh-tight);
+}
+
+.overdue-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  font-size: var(--fs-xs);
+}
+
+/* Termin, który minął: wyraźnie widoczny w każdej karcie, z przyciskiem zmiany terminu */
+.overdue-due {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+}
+
+.overdue-card .task-meta {
+  margin-bottom: 0.5rem;
+}
+
+.overdue-when {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.overdue-label {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.overdue-date {
+  color: var(--danger);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.overdue-ago {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}
+
+.btn-sm {
+  min-height: 2rem;
+  padding: 0 0.625rem;
+  font-size: var(--fs-sm);
+}
+
+.quick-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* --- Bez terminu: ta sama siatka kart co „Zaległe”, ale neutralna (bez czerwieni) --- */
+
+.undated-card .overdue-date {
+  color: var(--muted);
+}
+
+/* --- Archiwum: wykonane zadania, ta sama siatka, bez przekreślenia nazwy --- */
+
+.cal-task.archive-card .cal-task-name {
+  color: var(--text);
+  text-decoration: none;
+  cursor: default;
+}
+
+.cal-task.archive-card .cal-task-name:hover {
+  text-decoration: none;
+}
+
+.archive-card .overdue-date {
+  color: var(--brand-text);
+}

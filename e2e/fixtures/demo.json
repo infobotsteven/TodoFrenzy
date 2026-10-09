@@ -1,0 +1,2232 @@
+{
+  "note": "Dane demonstracyjne: terminy zadań są względem dnia importu (dueOffset w dniach, ujemne = przeszłość).",
+  "users": [
+    {
+      "nick": "Ania",
+      "avatar": "cat"
+    },
+    {
+      "nick": "Bartek",
+      "avatar": "fox"
+    },
+    {
+      "nick": "Celina",
+      "avatar": "panda"
+    },
+    {
+      "nick": "Darek",
+      "avatar": "bear"
+    },
+    {
+      "nick": "Ewa",
+      "avatar": "rabbit"
+    },
+    {
+      "nick": "Franek",
+      "avatar": "owl"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Przeprowadzka do nowego mieszkania",
+      "description": "Wszystko, co trzeba ogarnąć przed, w trakcie i po przeprowadzce. Klucze odbieramy 1 listopada.",
+      "color": "teal",
+      "checklists": [
+        {
+          "name": "Formalności",
+          "description": "Umowy, zgłoszenia i zmiany adresu.",
+          "color": "blue",
+          "tags": [
+            "do_sprawdzenia",
+            "formalności",
+            "pilne",
+            "techniczne"
+          ],
+          "tasks": [
+            {
+              "name": "Umowa przedwstępna – podpisana",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Wypowiedzenie umowy najmu obecnego mieszkania",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Zgłoszenie zmiany adresu (urząd, bank, ubezpieczenie)",
+              "description": "Bank, ubezpieczyciel, pracodawca, urząd skarbowy, przychodnia.",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -11,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Przepisanie liczników (prąd, gaz, woda)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -3,
+              "users": []
+            },
+            {
+              "name": "Internet w nowym mieszkaniu",
+              "description": "Umówić technika na dzień po odbiorze kluczy.",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 6,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Zmiana adresu w dowodzie i dowodzie rejestracyjnym",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 14,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Ubezpieczenie nowego mieszkania",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 22,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Pakowanie – kuchnia i salon",
+          "description": "Zaczynamy od rzeczy, których nie używamy na co dzień.",
+          "color": "amber",
+          "tags": [
+            "do_sprawdzenia",
+            "techniczne",
+            "zakupy"
+          ],
+          "tasks": [
+            {
+              "name": "Kartony i taśma (min. 40 sztuk)",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Naczynia i szkło – zapakować w papier",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 6,
+              "users": []
+            },
+            {
+              "name": "Książki (ok. 8 kartonów)",
+              "description": "Małe kartony, żeby nie były za ciężkie.",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 10,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Garnki i sprzęty kuchenne",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 13,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Obrazy i ramki",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 17,
+              "users": []
+            },
+            {
+              "name": "Elektronika – zdjęcie okablowania przed odpięciem",
+              "description": "Zrobić zdjęcia tylnych paneli TV i routera.",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 20,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Oznaczyć kartony (pomieszczenie + zawartość)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 24,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Pakowanie – sypialnia i łazienka",
+          "description": "Ubrania, pościel i kosmetyki.",
+          "color": "pink",
+          "tags": [
+            "pilne",
+            "zakupy"
+          ],
+          "tasks": [
+            {
+              "name": "Ubrania sezonowe – worki próżniowe",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Pościel i ręczniki",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 14,
+              "users": []
+            },
+            {
+              "name": "Kosmetyki i środki czystości",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 18,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Leki i apteczka – osobna torba",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 21,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Rzeczy, które jadą z nami w samochodzie",
+              "description": "Dokumenty, ładowarki, laptopy, klucze.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 25,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Dzień przeprowadzki (1 listopada)",
+          "description": "Plan dnia: odbiór kluczy, transport, rozpakowanie najpotrzebniejszych rzeczy.",
+          "color": "red",
+          "tags": [
+            "formalności",
+            "pilne",
+            "rodzina",
+            "zakupy"
+          ],
+          "tasks": [
+            {
+              "name": "Odbiór kluczy i protokół zdawczo-odbiorczy",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 26,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Spisanie stanu liczników",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 26,
+              "users": []
+            },
+            {
+              "name": "Transport – firma przewozowa od 9:00",
+              "description": "Potwierdzić dzień wcześniej. Nr kontaktowy w telefonie.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 26,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Pomoc znajomych (4 osoby)",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 26,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Pizza i napoje dla pomocników",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 26,
+              "users": []
+            },
+            {
+              "name": "Rozpakować łóżko i łazienkę w pierwszej kolejności",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 26,
+              "users": [
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Urządzanie i zakupy",
+          "description": "Rzeczy do kupienia i spraw do zrobienia po wprowadzeniu się.",
+          "color": "green",
+          "tags": [
+            "do_sprawdzenia",
+            "formalności",
+            "pilne",
+            "rodzina",
+            "zakupy"
+          ],
+          "tasks": [
+            {
+              "name": "Zasłony i karnisze",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 27,
+              "users": []
+            },
+            {
+              "name": "Szafka na buty do przedpokoju",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 33,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Lampy do salonu i sypialni",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 38,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Powieszenie półek i obrazów",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 44,
+              "users": []
+            },
+            {
+              "name": "Parapetówka – lista gości",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 49,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Sprawdzić usterki i zgłosić deweloperowi",
+              "description": "Termin zgłaszania usterek: 14 dni od odbioru.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 55,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Urządzanie i zakupy (kopia)",
+          "description": "Rzeczy do kupienia i spraw do zrobienia po wprowadzeniu się.",
+          "color": "green",
+          "tags": [
+            "do_sprawdzenia",
+            "formalności",
+            "pilne",
+            "rodzina",
+            "zakupy"
+          ],
+          "tasks": [
+            {
+              "name": "Zasłony i karnisze",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 27,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Szafka na buty do przedpokoju",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 33,
+              "users": []
+            },
+            {
+              "name": "Lampy do salonu i sypialni",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 38,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Powieszenie półek i obrazów",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 44,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Parapetówka – lista gości",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 49,
+              "users": []
+            },
+            {
+              "name": "Sprawdzić usterki i zgłosić deweloperowi",
+              "description": "Termin zgłaszania usterek: 14 dni od odbioru.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 55,
+              "users": [
+                "Ewa"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Webinar HR – jesienna edycja",
+      "description": "Przygotowanie i przeprowadzenie webinaru o mikro zarządzaniu dla działów HR. Termin: 20 października, 10:00.",
+      "color": "indigo",
+      "checklists": [
+        {
+          "name": "1. Treści i scenariusz",
+          "description": "Merytoryka webinaru: temat, prelegenci, scenariusz i prezentacja.",
+          "color": "purple",
+          "tags": [
+            "do_sprawdzenia",
+            "grafika",
+            "marketing",
+            "pilne",
+            "techniczne"
+          ],
+          "tasks": [
+            {
+              "name": "Temat i główne założenia",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Scenariusz wystąpienia",
+              "description": "Wersja robocza zaakceptowana przez zarząd.",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Prezentacja (slajdy)",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Materiały dodatkowe dla uczestników",
+              "description": "Checklista, szablon rozmowy 1:1, krótki e-book.",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -22,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Checklista prelegenta",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -18,
+              "users": []
+            },
+            {
+              "name": "Próba techniczna z prelegentem",
+              "description": "Sprawdzić dźwięk, kamerę i udostępnianie ekranu.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -14,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Q&A – lista przykładowych pytań",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": -10,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Opis na stronę wydarzenia",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": -6,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "2. Grafiki i materiały",
+          "description": "Wszystko, co wizualne: baner, social media, szablon maila.",
+          "color": "pink",
+          "tags": [
+            "do_sprawdzenia",
+            "grafika",
+            "marketing"
+          ],
+          "tasks": [
+            {
+              "name": "Baner na stronę",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Grafika do social mediów (FB, LinkedIn)",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Landing page – grafiki",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -15,
+              "users": []
+            },
+            {
+              "name": "Miniatura wideo",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": -12,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Szablon maila z zaproszeniem",
+              "description": "Wersja desktop i mobile. Sprawdzić w Outlooku i Gmailu.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -8,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Grafiki do reklam Google Ads",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -5,
+              "users": []
+            },
+            {
+              "name": "Zdjęcia prelegenta",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": -1,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Weryfikacja spójności identyfikacji",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 2,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. Promocja i rejestracja",
+          "description": "Kampanie, formularz zapisów i monitoring rejestracji.",
+          "color": "orange",
+          "tags": [
+            "do_sprawdzenia",
+            "marketing",
+            "pilne",
+            "techniczne"
+          ],
+          "tasks": [
+            {
+              "name": "Strona z zapisem",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Formularz rejestracyjny",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Test formularza (zapis testowy + mail potwierdzający)",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Kampania Facebook Ads",
+              "description": "Budżet 800 zł, grupa: HR i kadra zarządzająca.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -5,
+              "users": []
+            },
+            {
+              "name": "Kampania Google Ads",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -2,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Newsletter do bazy klientów",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 0,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Posty na LinkedIn (3 sztuki)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 4,
+              "users": []
+            },
+            {
+              "name": "Posty na Instagramie",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 7,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Współpraca z partnerami (wzmianki w ich newsletterach)",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": null,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Monitoring zapisów – raport tygodniowy",
+              "description": "Cel: 150 zapisanych osób.",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 13,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "4. Dzień webinaru",
+          "description": "Przebieg 20 października – godzina po godzinie.",
+          "color": "red",
+          "tags": [
+            "marketing",
+            "pilne",
+            "techniczne"
+          ],
+          "tasks": [
+            {
+              "name": "Sprawdzenie łącza i zapasowego internetu (08:30)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 14,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Uruchomienie transmisji i czatu (09:30)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 14,
+              "users": []
+            },
+            {
+              "name": "Powitanie uczestników i zasady czatu (10:00)",
+              "description": "",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 14,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Wystąpienie główne (10:05–10:50)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 14,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Sesja Q&A (10:50–11:20)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 14,
+              "users": []
+            },
+            {
+              "name": "Ankieta końcowa i link do materiałów",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 14,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Zapis nagrania",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 17,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Po webinarze",
+          "description": "Podsumowanie, nagranie i dalsze działania sprzedażowe.",
+          "color": "teal",
+          "tags": [
+            "grafika",
+            "marketing"
+          ],
+          "tasks": [
+            {
+              "name": "Montaż skróconej wersji (10 min)",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 20,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Podziękowanie dla uczestników + nagranie",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 15,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Lista leadów dla zespołu sprzedaży",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 19,
+              "users": []
+            },
+            {
+              "name": "Raport z ankiet",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 17,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Podsumowanie kosztów i efektów",
+              "description": "Koszt na uczestnika, konwersja z zapisów na udział.",
+              "completed": false,
+              "priority": "none",
+              "dueOffset": 22,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Retrospektywa zespołu",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": null,
+              "users": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wesele – 12 czerwca 2027",
+      "description": "Organizacja wesela dla 90 gości: sala, catering, muzyka, oprawa i wszystkie formalności. Budżet docelowy: 65 000 zł.",
+      "color": "pink",
+      "checklists": [
+        {
+          "name": "Sala i termin",
+          "description": "Rezerwacja miejsca ceremonii i przyjęcia.",
+          "color": "purple",
+          "tags": [
+            "pilne",
+            "umowy"
+          ],
+          "tasks": [
+            {
+              "name": "Lista sal weselnych (min. 5 do porównania)",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Wizyty w 3 najlepszych salach",
+              "description": "Zapytać o pełną dostępność w czerwcu i opłatę za korkowe.",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Podpisanie umowy z salą",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Wpłata zaliczki (30%)",
+              "description": "Termin płatności minął 15 września – potwierdzenie w mailu.",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Ustalenie godzin: ceremonia 15:00, przyjęcie 17:00",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -66,
+              "users": []
+            },
+            {
+              "name": "Rezerwacja noclegu dla gości z daleka",
+              "description": "Hotel obok sali, pakiet na 20 pokoi.",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -6,
+              "users": [
+                "Bartek"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Catering i tort",
+          "description": "Menu, degustacje i słodki stół.",
+          "color": "orange",
+          "tags": [
+            "budżet",
+            "goście"
+          ],
+          "tasks": [
+            {
+              "name": "Wybór firmy cateringowej",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Degustacja menu – termin 18 października",
+              "description": "Zabrać listę alergii gości.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -5,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Menu wegetariańskie i bezglutenowe",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 10,
+              "users": []
+            },
+            {
+              "name": "Wybór tortu i smaków",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 25,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Słodki stół – ciasta od rodziny",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 40,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Napoje i alkohol (kalkulacja ilości)",
+              "description": "Przyjąć 1 butelka wódki na 5 osób, wino 1 na 2 osoby.",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 55,
+              "users": []
+            },
+            {
+              "name": "Poprawiny – menu i liczba osób",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": null,
+              "users": [
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Goście i zaproszenia",
+          "description": "Lista gości, zaproszenia i potwierdzenia obecności.",
+          "color": "blue",
+          "tags": [
+            "goście",
+            "rodzina"
+          ],
+          "tasks": [
+            {
+              "name": "Wstępna lista gości (90 osób)",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Projekt zaproszeń",
+              "description": "",
+              "completed": true,
+              "priority": "medium",
+              "dueOffset": null,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Druk zaproszeń (110 szt.)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -21,
+              "users": []
+            },
+            {
+              "name": "Wysyłka zaproszeń – do końca grudnia",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 21,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Arkusz potwierdzeń (RSVP)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 62,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Plan stołów",
+              "description": "Dopiero po zebraniu potwierdzeń.",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 104,
+              "users": []
+            },
+            {
+              "name": "Pamiątki dla gości",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 145,
+              "users": [
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Muzyka, foto i wideo",
+          "description": "Zespół/DJ, fotograf, kamerzysta.",
+          "color": "indigo",
+          "tags": [
+            "budżet",
+            "umowy"
+          ],
+          "tasks": [
+            {
+              "name": "Porównanie ofert DJ i zespołów",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 4,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Spotkanie z fotografem",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 18,
+              "users": []
+            },
+            {
+              "name": "Pakiet foto + wideo – decyzja",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 32,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Lista utworów obowiązkowych i zakazanych",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 47,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Pierwszy taniec – wybór piosenki i lekcje",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 61,
+              "users": []
+            },
+            {
+              "name": "Umowy z wykonawcami",
+              "description": "Sprawdzić zapisy o odwołaniu terminu.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 75,
+              "users": [
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stroje i dodatki",
+          "description": "Suknia, garnitur, obrączki, kosmetyczka.",
+          "color": "red",
+          "tags": [
+            "pilne",
+            "zakupy"
+          ],
+          "tasks": [
+            {
+              "name": "Suknia ślubna – wybór salonu",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Przymiarka z poprawkami",
+              "description": "Przymiarka została przełożona – termin do ustalenia.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -35,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Garnitur pana młodego",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Obrączki",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -24,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Fryzjer i makijaż – próba",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -12,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Buty i dodatki",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": -1,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Formalności ślubne",
+          "description": "Dokumenty w USC lub parafii i szkolenie przedmałżeńskie.",
+          "color": "teal",
+          "tags": [
+            "do_sprawdzenia",
+            "formalności"
+          ],
+          "tasks": [
+            {
+              "name": "Dokumenty w USC (zaświadczenia)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 26,
+              "users": []
+            },
+            {
+              "name": "Kurs przedmałżeński",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 91,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Ustalenie świadków",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Termin spotkania z księdzem/urzędnikiem",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 156,
+              "users": []
+            },
+            {
+              "name": "Zmiana nazwiska – lista dokumentów do zmiany",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 221,
+              "users": [
+                "Bartek"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wdrożenie CRM w firmie (Q4)",
+      "description": "Migracja z arkuszy do nowego CRM dla zespołu sprzedaży (18 osób). Start produkcyjny: 1 grudnia. Sponsor projektu: dyrektor sprzedaży.",
+      "color": "blue",
+      "checklists": [
+        {
+          "name": "Analiza wymagań",
+          "description": "Warsztaty z zespołem i mapa procesów sprzedażowych.",
+          "color": "purple",
+          "tags": [
+            "dokumentacja",
+            "sprzedaż"
+          ],
+          "tasks": [
+            {
+              "name": "Warsztaty z handlowcami (3 spotkania)",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Mapa procesu sprzedaży (lead → umowa)",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Lista pól niestandardowych",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Wymagania raportowe zarządu",
+              "description": "Brakuje akceptacji dyrektora finansowego.",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -35,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Zakres integracji (poczta, księgowość)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -23,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Dokument wymagań – wersja 1.0",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -11,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Wybór dostawcy",
+          "description": "Porównanie ofert i negocjacje.",
+          "color": "amber",
+          "tags": [
+            "budżet",
+            "umowy"
+          ],
+          "tasks": [
+            {
+              "name": "Zapytanie ofertowe do 4 dostawców",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Demo u dwóch finalistów",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Macierz porównawcza (funkcje, cena, wsparcie)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -16,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Negocjacja ceny licencji (zniżka za 3 lata)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -6,
+              "users": []
+            },
+            {
+              "name": "Opinia działu IT o bezpieczeństwie",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 4,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Podpisanie umowy",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 14,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Konfiguracja i migracja danych",
+          "description": "Ustawienie systemu i przeniesienie bazy klientów.",
+          "color": "teal",
+          "tags": [
+            "techniczne",
+            "testy"
+          ],
+          "tasks": [
+            {
+              "name": "Konfiguracja pipeline’ów i etapów sprzedaży",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 15,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Czyszczenie danych klientów w arkuszach",
+              "description": "Duplikaty i nieaktualne kontakty – ok. 4 000 rekordów.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 19,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Import testowy (100 rekordów)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 22,
+              "users": []
+            },
+            {
+              "name": "Import pełny na środowisko testowe",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 26,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Role i uprawnienia użytkowników",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 29,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Integracja z pocztą",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 33,
+              "users": []
+            },
+            {
+              "name": "Integracja z systemem księgowym",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 36,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Automatyzacje i powiadomienia",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 40,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Testy akceptacyjne",
+          "description": "Sprawdzenie systemu przez grupę pilotażową.",
+          "color": "green",
+          "tags": [
+            "do_sprawdzenia",
+            "testy"
+          ],
+          "tasks": [
+            {
+              "name": "Plan testów i scenariusze",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 41,
+              "users": []
+            },
+            {
+              "name": "Grupa pilotażowa (5 handlowców)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 43,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Zbieranie uwag i błędów",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 46,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Poprawki po testach",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 48,
+              "users": []
+            },
+            {
+              "name": "Podpis protokołu odbioru",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 50,
+              "users": [
+                "Bartek"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Szkolenia",
+          "description": "Przygotowanie zespołu do pracy w nowym systemie.",
+          "color": "orange",
+          "tags": [
+            "sprzedaż",
+            "szkolenie"
+          ],
+          "tasks": [
+            {
+              "name": "Materiały szkoleniowe (krótkie wideo)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 45,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Szkolenie grupy 1 (9 osób)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 48,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Szkolenie grupy 2 (9 osób)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 50,
+              "users": []
+            },
+            {
+              "name": "Instrukcja „pierwszy dzień w CRM\"",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 53,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Dyżur wsparcia w pierwszym tygodniu",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 55,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Uruchomienie produkcyjne",
+          "description": "Przełączenie zespołu na nowy system 1 grudnia.",
+          "color": "red",
+          "tags": [
+            "pilne",
+            "techniczne"
+          ],
+          "tasks": [
+            {
+              "name": "Ostatni eksport z arkuszy (30 listopada wieczorem)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 56,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Import końcowy i weryfikacja liczby rekordów",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 56,
+              "users": []
+            },
+            {
+              "name": "Blokada edycji starych arkuszy",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 56,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Komunikat do zespołu o starcie",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 56,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Plan awaryjny (powrót do arkuszy)",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 56,
+              "users": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sklep internetowy – premiera 20 listopada",
+      "description": "Start nowego sklepu z akcesoriami do kawy: katalog 120 produktów, płatności, wysyłka i kampania na Black Friday.",
+      "color": "green",
+      "checklists": [
+        {
+          "name": "Katalog produktów",
+          "description": "Opisy, zdjęcia i ceny wszystkich produktów.",
+          "color": "amber",
+          "tags": [
+            "SEO",
+            "grafika",
+            "marketing"
+          ],
+          "tasks": [
+            {
+              "name": "Lista 120 produktów w arkuszu",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Sesja zdjęciowa – kategoria „Młynki\"",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Sesja zdjęciowa – kategoria „Zaparzacze\"",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -26,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Opisy produktów (SEO) – 60 z 120",
+              "description": "Reszta czeka na dane od dostawcy.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -13,
+              "users": []
+            },
+            {
+              "name": "Parametry techniczne i warianty kolorystyczne",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 0,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Ceny i promocje startowe",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 12,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Kategorie i filtry w sklepie",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 25,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Platforma i płatności",
+          "description": "Konfiguracja sklepu, bramki płatności i podatków.",
+          "color": "blue",
+          "tags": [
+            "techniczne",
+            "testy"
+          ],
+          "tasks": [
+            {
+              "name": "Wybór platformy i motywu",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Domena i certyfikat SSL",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Bramka płatności (karty, BLIK)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -21,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Przelewy tradycyjne i pobranie",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": -13,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Stawki VAT i faktury automatyczne",
+              "description": "Konsultacja z księgową w czwartek.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -6,
+              "users": []
+            },
+            {
+              "name": "Maile transakcyjne (potwierdzenie, wysyłka)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 2,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Test zamówienia end-to-end",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 9,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Logistyka i wysyłka",
+          "description": "Magazyn, kurierzy i zwroty.",
+          "color": "orange",
+          "tags": [
+            "budżet",
+            "logistyka"
+          ],
+          "tasks": [
+            {
+              "name": "Umowa z firmą kurierską (negocjacja stawek)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": -1,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Integracja etykiet z platformą",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 6,
+              "users": [
+                "Ania",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Opakowania (kartony, wypełnienie, ulotki)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 13,
+              "users": []
+            },
+            {
+              "name": "Proces zwrotów i reklamacji",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 21,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Stan magazynowy – inwentaryzacja",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 28,
+              "users": [
+                "Bartek",
+                "Darek"
+              ]
+            },
+            {
+              "name": "Dostawa towaru od producenta",
+              "description": "Termin dostawy: 8 listopada.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 35,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Marketing i kampania",
+          "description": "Kampanie, newsletter, social media i Black Friday.",
+          "color": "pink",
+          "tags": [
+            "SEO",
+            "grafika",
+            "marketing"
+          ],
+          "tasks": [
+            {
+              "name": "Strategia komunikacji i hasła kampanii",
+              "description": "",
+              "completed": true,
+              "priority": "medium",
+              "dueOffset": null,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Konta w social mediach – profil i avatary",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 14,
+              "users": []
+            },
+            {
+              "name": "Kampania Google Ads (słowa kluczowe)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 21,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Kampania Meta Ads (retargeting)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 28,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Newsletter startowy + kod rabatowy",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 35,
+              "users": []
+            },
+            {
+              "name": "Współpraca z blogerami kawowymi (5 osób)",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": 41,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Plan Black Friday (27 listopada)",
+              "description": "Promocja 20% na wybrane młynki.",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 48,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Pozycjonowanie – meta tagi i mapa strony",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 55,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Prawo i regulaminy",
+          "description": "Dokumenty wymagane do sprzedaży konsumenckiej.",
+          "color": "gray",
+          "tags": [
+            "dokumentacja",
+            "formalności"
+          ],
+          "tasks": [
+            {
+              "name": "Regulamin sklepu",
+              "description": "",
+              "completed": true,
+              "priority": "high",
+              "dueOffset": null,
+              "users": [
+                "Bartek",
+                "Franek"
+              ]
+            },
+            {
+              "name": "Polityka prywatności i cookies",
+              "description": "",
+              "completed": true,
+              "priority": "none",
+              "dueOffset": null,
+              "users": []
+            },
+            {
+              "name": "Formularz odstąpienia od umowy",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": -5,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Rejestracja w BDO (opakowania)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 7,
+              "users": [
+                "Celina",
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Zgody marketingowe (RODO) w koszyku",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 19,
+              "users": []
+            }
+          ]
+        },
+        {
+          "name": "Premiera i po premierze",
+          "description": "Dzień startu i pierwsze tygodnie.",
+          "color": "teal",
+          "tags": [
+            "pilne",
+            "sprzedaż"
+          ],
+          "tasks": [
+            {
+              "name": "Checklista przed startem (płatności, mail, zapas)",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 45,
+              "users": []
+            },
+            {
+              "name": "Publikacja sklepu i komunikat w mediach",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 49,
+              "users": [
+                "Ewa"
+              ]
+            },
+            {
+              "name": "Monitoring zamówień pierwszego dnia",
+              "description": "",
+              "completed": false,
+              "priority": "high",
+              "dueOffset": 53,
+              "users": [
+                "Ania",
+                "Celina"
+              ]
+            },
+            {
+              "name": "Obsługa wiadomości klientów (dyżur)",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 57,
+              "users": []
+            },
+            {
+              "name": "Raport po tygodniu: sprzedaż, koszty, konwersja",
+              "description": "",
+              "completed": false,
+              "priority": "medium",
+              "dueOffset": 61,
+              "users": [
+                "Bartek"
+              ]
+            },
+            {
+              "name": "Prośba o opinie do klientów",
+              "description": "",
+              "completed": false,
+              "priority": "low",
+              "dueOffset": null,
+              "users": [
+                "Darek",
+                "Franek"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "do_sprawdzenia",
+    "formalności",
+    "pilne",
+    "techniczne",
+    "zakupy",
+    "rodzina",
+    "grafika",
+    "marketing",
+    "umowy",
+    "budżet",
+    "goście",
+    "dokumentacja",
+    "sprzedaż",
+    "testy",
+    "szkolenie",
+    "SEO",
+    "logistyka"
+  ]
+}

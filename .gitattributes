@@ -1,0 +1,7 @@
+# Normalizuj końce linii do LF w repo (projekt będzie działał w Dockerze/Linux)
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff2 binary

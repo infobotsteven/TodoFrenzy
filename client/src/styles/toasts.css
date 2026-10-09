@@ -1,0 +1,76 @@
+/* --- Toasty --- */
+
+.toasts {
+  position: fixed;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  max-width: 30rem;
+  border-radius: var(--radius-control);
+  background: var(--toast-bg);
+  color: #fff;
+  box-shadow: 0 0.375rem 1.25rem rgb(0 0 0 / 0.3);
+}
+
+.toast-text,
+.toast-action {
+  min-height: var(--tap);
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.toast-text {
+  padding: 0.5rem 1rem;
+}
+
+.toast-action {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  color: #86efac;
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+}
+
+/* Usuwanie zadania jednym kliknięciem: kosz pojawia się po najechaniu, a na ekranach dotykowych jest zawsze */
+.task-delete {
+  width: 2.25rem;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+/* Fokus odsłania kosz tylko przy nawigacji klawiaturą (:focus-visible). Zwykły :focus-within zostawiałby go
+   widocznego po przeciągnięciu, bo uchwyt dnd-kit zachowuje fokus po upuszczeniu. */
+.task:hover .task-delete,
+.task:has(:focus-visible) .task-delete {
+  opacity: 1;
+}
+
+.task-delete:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.task-delete svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+@media (hover: none) {
+  .task-delete {
+    opacity: 0.6;
+  }
+}

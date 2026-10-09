@@ -1,0 +1,79 @@
+/* --- Większe ekrany --- */
+
+@media (min-width: 640px) {
+  .shell {
+    padding: 1.5rem;
+  }
+
+  /* Slider: jeden rząd list, przewijany poziomo */
+  .board-slider {
+    flex-direction: row;
+    align-items: flex-start;
+    overflow-x: auto;
+    padding: 0.25rem 0.25rem 0.75rem;
+    margin: -0.25rem;
+  }
+
+  /* Szerokość listy jest stała i taka sama jak w siatce (--list-width ustawia ProjectPage) */
+  .board-slider > .checklist {
+    flex: 0 0 var(--list-width);
+  }
+
+  /* Siatka = kolumny (masonry): listy układają się jedna pod drugą, bez pustych luk pod krótszymi kartami.
+     Karty mają naturalną wysokość i pełną treść (bez przewijania wewnątrz). Liczbę kolumn ustala JS
+     z szerokości ekranu (przy stałej szerokości listy), a lista nr N trafia do kolumny N mod liczba_kolumn, więc kolejność czytania
+     (rzędami) i przydział do kolumn są stałe. */
+  .board-masonry {
+    flex-direction: row;
+    align-items: flex-start;
+    /* kolumny rozciągają się tak, żeby wypełnić rząd od krawędzi do krawędzi - odstęp poziomy = pionowy (gap) */
+    justify-content: space-between;
+  }
+
+  .board-col {
+    display: flex;
+    /* minimalna szerokość = szerokość listy (jak w sliderze), reszta wolnego miejsca w rzędzie dzieli się równo na kolumny */
+    flex: 1 1 var(--list-width);
+    max-width: calc(var(--list-width) * 1.5);
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+  }
+
+}
+
+/* Wąski telefon: pasek u góry mieści się w jednym rzędzie - znak bez napisu, ciaśniejsze odstępy przy wylogowaniu i języku */
+@media (max-width: 480px) {
+  .brand-text {
+    display: none;
+  }
+
+  .topbar {
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .logout-btn,
+  .lang-select {
+    margin-right: 0;
+  }
+}
+
+/* Telefon: nagłówek strony głównej - zakładki (Projekty / Archiwum / Statystyki) w jednym rzędzie, a przyciski akcji pod nimi */
+@media (max-width: 640px) {
+  .page-head:has(.page-tabs) {
+    flex-direction: column;
+  }
+
+  .page-head:has(.page-tabs) .page-head-actions {
+    justify-content: flex-start;
+  }
+
+  .page-tabs .planner-tab.page-tab {
+    font-size: var(--fs-md);
+  }
+
+  .page-tabs .planner-tabs {
+    gap: 0.875rem;
+  }
+}

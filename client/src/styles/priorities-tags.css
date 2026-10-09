@@ -1,0 +1,226 @@
+/* --- Priorytety i tagi --- */
+
+[data-priority='low'] { --p: var(--c-blue); }
+[data-priority='medium'] { --p: var(--c-amber); }
+[data-priority='high'] { --p: var(--c-red); }
+[data-priority='none'] { --p: var(--c-gray); }
+
+/* Tagi listy pod nagłówkiem karty */
+.list-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.badge,
+.tag,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  max-width: 100%;
+  padding: 1px 0.5rem;
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  overflow-wrap: anywhere; /* długi tag się zawija zamiast wystawać */
+  text-align: left;
+}
+
+.badge {
+  border: 1px solid color-mix(in srgb, var(--p) 28%, transparent);
+  background: color-mix(in srgb, var(--p) 10%, transparent);
+}
+
+.badge-dot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: var(--p);
+}
+
+.tag {
+  background: var(--hover);
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.chip {
+  min-height: 2rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.chip:hover {
+  background: var(--hover);
+}
+
+.chip-on {
+  border-color: color-mix(in srgb, var(--brand) 55%, var(--border));
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.tag-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Wybór priorytetu: cztery przyciski w rzędzie */
+.seg {
+  display: flex;
+  gap: 0.375rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.seg-item {
+  position: relative;
+  flex: 1;
+}
+
+.seg-item input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.seg-item span {
+  display: grid;
+  place-items: center;
+  min-height: var(--tap);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  font-size: var(--fs-sm);
+}
+
+.seg-item:has(input:checked) span {
+  border-color: var(--p);
+  background: color-mix(in srgb, var(--p) 18%, transparent);
+  font-weight: var(--fw-semibold);
+}
+
+.seg-item:has(input:focus-visible) span {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+
+.filter-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* pasek nad filtrami kalendarza i zakładek zadań: opcje widoku (np. „Ukryj ukończone”) i stały przycisk „Wyczyść filtry” */
+.filter-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+}
+
+/* wiersz z kontrolkami (lista rozwijana, pole wyboru, przycisk) */
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.check-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--tap);
+  cursor: pointer;
+}
+
+.check-inline input {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--brand);
+}
+
+select {
+  min-height: var(--tap);
+  padding: 0 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-list {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tag-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Termin zadania */
+.due {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1px 0.5rem;
+  border-radius: 999px;
+  background: var(--hover);
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+.due svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: none;
+}
+
+.due-overdue {
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-weight: var(--fw-semibold);
+}
+
+.due-today {
+  background: color-mix(in srgb, var(--c-amber) 22%, transparent);
+  color: var(--text);
+  font-weight: var(--fw-semibold);
+}
+
+.date-row {
+  display: flex;
+  gap: 0.5rem;
+}

@@ -1,0 +1,447 @@
+/* --- Kalendarz (widok główny) --- */
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.calendar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* Telefon: panel jest kotwiczony do paska nawigacji (na całą szerokość), a nie do przycisku, który może być wszędzie */
+.calendar-nav {
+  position: relative;
+  width: 100%;
+}
+
+.week-picker {
+  position: static;
+}
+
+.week-picker-btn {
+  min-width: 11.875rem;
+  gap: 0.5rem;
+  font-weight: var(--fw-semibold);
+}
+
+.week-picker-btn svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+}
+
+.week-picker-panel {
+  position: absolute;
+  top: calc(100% + 0.375rem);
+  left: 0;
+  z-index: 30;
+  width: min(18.75rem, calc(100vw - 2rem));
+  padding: 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 0.75rem 2rem var(--shadow);
+}
+
+/* Na szerokich ekranach panel wyśrodkowany pod przyciskiem; na telefonie przycisk bywa przy lewej krawędzi */
+@media (min-width: 640px) {
+  .calendar-nav {
+    width: auto;
+  }
+
+  .week-picker {
+    position: relative;
+  }
+
+  .week-picker-panel {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.wp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.375rem;
+}
+
+.wp-title {
+  text-transform: capitalize;
+}
+
+.wp-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.wp-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-radius: var(--radius-control);
+}
+
+.wp-row:not(.wp-weekdays):hover {
+  background: var(--hover);
+}
+
+.wp-row.selected {
+  background: color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+.wp-weekday {
+  padding: 0.25rem 0;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wp-day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 2.375rem;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: none;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.wp-day.out {
+  color: var(--muted-2);
+}
+
+.wp-day.today {
+  font-weight: var(--fw-bold);
+  color: var(--brand-text);
+  outline: 1.5px solid var(--brand);
+  outline-offset: -3px;
+}
+
+.wp-dot {
+  position: absolute;
+  bottom: 0.25rem;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  border-radius: 50%;
+  background: var(--c-blue);
+}
+
+.wp-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* Filtry kalendarza */
+/* Etykieta po lewej, chipy w jednej kolumnie obok niej (zawijają się w jej obrębie); na telefonie etykieta nad chipami */
+.filter-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.25rem 0.625rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .filter-row {
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+  }
+}
+
+.filter-label {
+  padding-top: 0.3125rem;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.filter-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.filter-project {
+  align-self: center;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+/* Kolorowa kropka projektu / listy (kolor z palety przez data-color) */
+.dot {
+  flex: none;
+  display: inline-block;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  margin-right: 0.3125rem;
+  border-radius: 50%;
+  background: var(--accent, var(--muted-2));
+}
+
+/* Siatka tygodnia: 7 kolumn na szerokim ekranie, dni jeden pod drugim na wąskim */
+.week-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.cal-day {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+  min-height: 5.625rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.cal-day.today {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 1px var(--brand);
+}
+
+.cal-day.past {
+  background: var(--surface-2);
+}
+
+.cal-day.over {
+  background: color-mix(in srgb, var(--brand) 14%, var(--surface));
+  border-color: var(--brand);
+}
+
+.cal-day-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+}
+
+.cal-weekday {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+}
+
+.cal-daynum {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+}
+
+.cal-month {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}
+
+.cal-today-badge {
+  padding: 0 0.4375rem;
+  border-radius: 999px;
+  background: var(--brand);
+  color: var(--on-brand);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+}
+
+.cal-count {
+  margin-left: auto;
+  min-width: 1.125rem;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  text-align: right;
+}
+
+/* Dodawanie zadania na dany dzień: mały przycisk „+” w nagłówku dnia */
+.cal-add {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 1.625rem;
+  height: 1.625rem;
+  padding: 0;
+  border: 1px solid var(--brand);
+  border-radius: 999px;
+  background: var(--brand);
+  color: var(--on-brand);
+  cursor: pointer;
+}
+
+/* plus rysowany jako SVG - dokładnie na środku koła, niezależnie od metryk czcionki */
+.cal-add svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.cal-add:hover {
+  border-color: var(--brand-hover);
+  background: var(--brand-hover);
+}
+
+.cal-day-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.cal-empty {
+  font-size: var(--fs-sm);
+  margin: auto 0;
+  color: var(--muted-2);
+  font-size: var(--fs-xs);
+  text-align: center;
+}
+
+.cal-task {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+  padding: 0.375rem 0.125rem 0.375rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+
+/* Zadanie nosi kolor swojego projektu: delikatne tło i obwódka - tak samo jak karta projektu na liście projektów (zadania projektu bez koloru są neutralne) */
+.cal-task[data-color] {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+}
+
+/* Stan zadania bez kolorowych pasków (kolor = tożsamość projektu, jako kropka): po terminie - lekki czerwony odcień, wykonane - przekreślona nazwa */
+.cal-task.overdue {
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--border));
+}
+
+/* kolor projektu jest ważniejszy: czerwone tło tylko dla zadań bez koloru, a przy kolorze po terminie zostaje czerwonawa obwódka */
+.cal-task.overdue:not([data-color]) {
+  background: var(--danger-soft);
+}
+
+.cal-task.done .cal-task-name {
+  color: var(--muted-2);
+  text-decoration: line-through;
+}
+
+.cal-check {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0.1875rem 0 0;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+
+.cal-task-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.1875rem;
+  min-width: 0;
+}
+
+.cal-task-name {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.cal-task-name:hover {
+  text-decoration: underline;
+}
+
+.cal-origin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* projekt w pierwszej linii, lista w drugiej (poprzedzona strzałką) */
+.cal-origin-list::before {
+  content: '› ';
+  color: var(--muted-2);
+}
+
+.cal-origin a:hover {
+  text-decoration: underline;
+}
+
+.cal-origin-sep {
+  display: none;
+}
+
+.cal-task .drag-handle {
+  width: 1.375rem;
+  height: 1.75rem;
+  font-size: var(--fs-base);
+}
+
+.cal-drag-source {
+  opacity: 0.35;
+}
+
+.cal-ghost {
+  box-shadow: 0 0.75rem 2rem var(--shadow);
+  pointer-events: none;
+}
+
+.cal-ghost .cal-task {
+  background: var(--surface);
+}
+
+.cal-ghost .cal-task[data-color] {
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
+}
+
+.cal-modal-name {
+  overflow-wrap: anywhere;
+}
+
+.cal-modal-origin a {
+  text-decoration: underline;
+}
+
+/* Średnie ekrany: dni zawijają się do kolejnych rzędów (kolumny nie mogą być węższe niż ok. 12rem, żeby nazwy zadań się mieściły) */
+@media (min-width: 640px) {
+  .week-grid {
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  }
+}
+
+/* 7 kolumn w jednym rzędzie od ok. 1600px (przy skali 120% to ok. 1330px szerokości roboczej) */
+@media (min-width: 1600px) {
+  .week-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .cal-day {
+    min-height: 13.75rem;
+  }
+}
