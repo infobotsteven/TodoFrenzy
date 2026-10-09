@@ -13,6 +13,23 @@ Dane trzyma SQLite — jeden plik, żadnego zewnętrznego serwera bazy. Interfej
   <img src="docs/images/statistics-light.png" alt="Statystyki" width="49%">
 </p>
 
+## Spis treści
+
+- [Najważniejsze funkcje](#najważniejsze-funkcje)
+- [Wymagania](#wymagania)
+- [Szybki start](#szybki-start)
+  - [Logowanie i zmiana hasła](#logowanie-i-zmiana-hasła)
+  - [Wersja produkcyjna (jeden proces, jeden port)](#wersja-produkcyjna-jeden-proces-jeden-port)
+  - [Docker (serwer domowy)](#docker-serwer-domowy)
+  - [Konfiguracja (`.env`)](#konfiguracja-env)
+  - [Dostęp z telefonu (sieć lokalna)](#dostęp-z-telefonu-sieć-lokalna)
+  - [Kopie zapasowe](#kopie-zapasowe)
+- [Polecenia](#polecenia)
+- [Struktura repozytorium](#struktura-repozytorium)
+- [Dokumentacja](#dokumentacja)
+- [Uwagi](#uwagi)
+- [Licencja](#licencja)
+
 ## Najważniejsze funkcje
 
 - **Projekty → listy → zadania**, wszystko przestawiane przeciąganiem (drag & drop), z kolorami, kopiowaniem i licznikami.
@@ -110,7 +127,7 @@ Jak przechowywane są dane:
   ```bash
   docker compose exec app node server/dist/backup-cli.js
   ```
-  Od czasu do czasu skopiuj ten katalog poza serwer (albo zaplanuj polecenie w Harmonogramie zadań / cron). Przywracanie kopii:
+  Od czasu do czasu skopiuj ten katalog poza serwer (albo zaplanuj polecenie w Harmonogramie zadań / cron). Przywracanie kopii (wykonaj w folderze projektu, tym z `docker-compose.yml`; plik kopii musi leżeć w jego katalogu `backups/`, a w poleceniu podajesz samą nazwę, bez ścieżki):
   ```bash
   docker compose stop app
   docker compose run --rm --no-deps app sh -c "rm -f /app/data/todo.db-wal /app/data/todo.db-shm && cp /app/backups/todo-RRRRMMDD-GGMMSS.db /app/data/todo.db"
@@ -155,6 +172,8 @@ W sieci lokalnej hasło i sesja przechodzą po zwykłym HTTP — **nie wystawiaj
 (patrz [docs/pl/BEZPIECZENSTWO.md](docs/pl/BEZPIECZENSTWO.md)).
 
 ### Kopie zapasowe
+
+Bez Dockera (z Dockerem: polecenia kopii i przywracania są w sekcji „Docker” wyżej):
 
 ```bash
 npm run db:backup        # spójna kopia bazy do backups/ (zostaje 14 najnowszych)

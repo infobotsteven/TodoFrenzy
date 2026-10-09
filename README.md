@@ -13,6 +13,23 @@ live (WebSocket). Data is stored in SQLite — a single file, no external databa
   <img src="docs/images/statistics-light.png" alt="Statistics" width="49%">
 </p>
 
+## Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Quick start](#quick-start)
+  - [Login and changing the password](#login-and-changing-the-password)
+  - [Production build (one process, one port)](#production-build-one-process-one-port)
+  - [Docker (home server)](#docker-home-server)
+  - [Configuration (`.env`)](#configuration-env)
+  - [Access from a phone (local network)](#access-from-a-phone-local-network)
+  - [Backups](#backups)
+- [Commands](#commands)
+- [Repository structure](#repository-structure)
+- [Documentation](#documentation)
+- [Notes](#notes)
+- [License](#license)
+
 ## Features
 
 - **Projects → lists → tasks**, all reorderable by drag and drop, with colors, copying and progress counters.
@@ -110,7 +127,7 @@ How the data is stored:
   ```bash
   docker compose exec app node server/dist/backup-cli.js
   ```
-  Copy that folder somewhere outside the server now and then (or schedule the command with Task Scheduler / cron). To restore a backup:
+  Copy that folder somewhere outside the server now and then (or schedule the command with Task Scheduler / cron). To restore a backup (run it in the project folder, the one containing `docker-compose.yml`; the backup file must be in that folder's `backups/` and you give only its name, without a path):
   ```bash
   docker compose stop app
   docker compose run --rm --no-deps app sh -c "rm -f /app/data/todo.db-wal /app/data/todo.db-shm && cp /app/backups/todo-YYYYMMDD-HHMMSS.db /app/data/todo.db"
@@ -155,6 +172,8 @@ On a local network the password and session travel over plain HTTP — **do not 
 (see [docs/SECURITY.md](docs/SECURITY.md)).
 
 ### Backups
+
+Without Docker (with Docker, see the backup and restore commands in the "Docker" section above):
 
 ```bash
 npm run db:backup        # a consistent copy of the database into backups/ (the 14 newest are kept)
