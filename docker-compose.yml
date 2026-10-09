@@ -1,0 +1,28 @@
+# TodoFrenzy in Docker:  docker compose up -d --build
+# Settings (password, port) come from the .env file - template in .env.example.
+name: todofrenzy
+
+services:
+  app:
+    build: .
+    image: todofrenzy:local
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # always 3000 inside the container - change the outside port with TODOFRENZY_PORT in .env
+      PORT: "3000"
+      HOST: "0.0.0.0"
+      DATABASE_PATH: /app/data/todo.db
+      BACKUP_DIR: /app/backups
+    ports:
+      - "${TODOFRENZY_PORT:-3100}:3000"
+    volumes:
+      # the database lives in a Docker-managed volume (SQLite in WAL mode does not get along with Windows host folders)
+      - data:/app/data
+      # backups (db:backup) go to a plain folder next to the project - easy to copy elsewhere
+      - ./backups:/app/backups
+
+volumes:
+  data:

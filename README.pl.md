@@ -65,6 +65,58 @@ npm start                # Fastify serwuje API i zbudowany frontend na :3000
 
 Otwórz http://localhost:3000.
 
+### Docker (serwer domowy)
+
+Najprostszy sposób, żeby TodoFrenzy działał na stałe na domowym serwerze (Windows z Docker Desktop, Linux lub NAS). Wymaga Dockera z Compose v2.24 lub nowszym (aktualny Docker Desktop wystarcza).
+
+```bash
+git clone https://github.com/infobotsteven/TodoFrenzy.git
+cd TodoFrenzy
+cp .env.example .env     # PowerShell: Copy-Item .env.example .env
+```
+
+1. **Zedytuj `.env`:**
+   - ustaw port na serwerze: `TODOFRENZY_PORT=3100` (odkomentuj linię; domyślnie **3100**, żeby nie kolidować z czymś, co już używa portu 3000),
+   - ustaw własne hasło zamiast `admin`/`admin`: wygeneruj hash poleceniem
+     `docker compose run --rm app node server/dist/auth-hash-cli.js "twojeHaslo"`
+     i wklej wypisaną linijkę `AUTH_PASSWORD_HASH='...'` do `.env` (zostaw apostrofy).
+2. **Uruchom:**
+   ```bash
+   docker compose up -d --build
+   ```
+   Pierwsze budowanie trwa kilka minut. Sprawdź `docker compose ps` (stan powinien zmienić się na `healthy`) oraz `docker compose logs`.
+3. **Otwórz:** `http://<IP-serwera>:3100` z dowolnego urządzenia w sieci i zaloguj się.
+4. **Tylko Windows:** jednorazowo zezwól na port w zaporze (PowerShell jako administrator):
+   ```powershell
+   New-NetFirewallRule -DisplayName "TodoFrenzy" -Direction Inbound -Protocol TCP -LocalPort 3100 -Profile Private -Action Allow
+   ```
+   Zarezerwuj też stały adres IP serwera w routerze i włącz *Start Docker Desktop when you sign in*, żeby kontener wracał po restarcie (resztę załatwia `restart: unless-stopped`).
+
+Jak przechowywane są dane:
+- Baza leży w wolumenie Dockera `todofrenzy_data` i przetrwa przebudowy oraz aktualizacje. (Wolumen zarządzany przez Dockera jest celowy: SQLite w trybie WAL bywa zawodny na katalogach z dysku Windows.)
+- Kopie zapasowe trafiają do katalogu `backups/` obok `docker-compose.yml`:
+  ```bash
+  docker compose exec app node server/dist/backup-cli.js
+  ```
+  Od czasu do czasu skopiuj ten katalog poza serwer (albo zaplanuj polecenie w Harmonogramie zadań / cron). Przywracanie kopii:
+  ```bash
+  docker compose stop app
+  docker compose run --rm --no-deps app sh -c "rm -f /app/data/todo.db-wal /app/data/todo.db-shm && cp /app/backups/todo-RRRRMMDD-GGMMSS.db /app/data/todo.db"
+  docker compose start app
+  ```
+  Na Linuksie katalog `backups/` musi być zapisywalny dla uid 1000 (`mkdir backups && chown 1000:1000 backups`).
+
+Polecenia na co dzień:
+
+| Polecenie | Co robi |
+|---|---|
+| `docker compose up -d --build` | uruchomienie albo aktualizacja po `git pull` (dane zostają) |
+| `docker compose logs -f` | podgląd logu na żywo |
+| `docker compose restart app` | restart |
+| `docker compose down` | zatrzymanie i usunięcie kontenera (dane zostają; **nie** dodawaj `-v`, bo to kasuje wolumen) |
+
+Obowiązuje to samo ostrzeżenie co wyżej (zwykłe HTTP): używaj w sieci domowej, a przed wystawieniem na zewnątrz postaw reverse proxy z HTTPS (albo VPN).
+
 ### Konfiguracja (`.env`)
 
 | Zmienna | Domyślnie | Znaczenie |
@@ -75,6 +127,7 @@ Otwórz http://localhost:3000.
 | `BACKUP_DIR`, `BACKUP_KEEP` | `./backups`, `14` | katalog i liczba kopii zapasowych |
 | `AUTH_USER`, `AUTH_PASSWORD_HASH` / `AUTH_PASSWORD` | `admin` / `admin` | konto logowania (zalecany hash) |
 | `AUTH_SESSION_SECONDS`, `AUTH_MAX_ATTEMPTS`, `AUTH_LOCK_SECONDS` | `604800`, `5`, `900` | czas sesji i blokada po błędnych próbach |
+| `TODOFRENZY_PORT` | `3100` | tylko Docker: port wystawiony na serwerze |
 
 ### Dostęp z telefonu (sieć lokalna)
 
@@ -121,6 +174,7 @@ e2e/      testy przeglądarkowe (Playwright) + dane demonstracyjne
 docs/     dokumentacja (angielska w docs/, polska w docs/pl/)
 logo/     logo „Odhacz” (SVG/PNG)
 data/     plik SQLite (tworzony przy pierwszym uruchomieniu, poza gitem)
+Dockerfile, docker-compose.yml   obraz kontenera i jego konfiguracja uruchomieniowa (patrz „Docker”)
 ```
 
 ## Dokumentacja

@@ -161,4 +161,6 @@ the views; the split was verified by pixel-by-pixel screenshot comparison). File
 - `npm start`: `node --env-file-if-exists=../.env dist/index.js`.
 - Drizzle migrations (`server/drizzle/*.sql`) are applied at startup (`runMigrations`). In practice only **additive** migrations
   (ALTER ADD COLUMN, CREATE INDEX) — see [DATA-MODEL.md](DATA-MODEL.md).
-- Docker is not prepared yet (see [ROADMAP.md](ROADMAP.md)).
+- Docker: `Dockerfile` (a multi-stage build on `node:22-bookworm`, production dependencies installed separately, final image `node:22-bookworm-slim` running as the unprivileged `node` user, a `HEALTHCHECK` on `/api/health`)
+  and `docker-compose.yml` (port `${TODOFRENZY_PORT:-3100}` → 3000, the database in the named volume `data` mounted at `/app/data`, backups in the `./backups` folder, `restart: unless-stopped`).
+  `tsup` also bundles the CLI tools (`server/dist/backup-cli.js`, `server/dist/auth-hash-cli.js`) so they run without `tsx` inside the image. Usage: see the README.

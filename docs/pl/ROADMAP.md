@@ -4,11 +4,10 @@ Wersja angielska (kanoniczna): [../ROADMAP.md](../ROADMAP.md). Nic tu nie jest o
 
 ## Wdrożenie
 
-- **Docker:** obraz wielostopniowy (build frontendu i serwera → obraz uruchomieniowy `node:22-slim`/alpine z `better-sqlite3`),
-  użytkownik nie-root, wolumen na `DATABASE_PATH` (np. `/data/todo.db`), `HEALTHCHECK` na `/api/health`, `docker-compose.yml`.
-  Uwaga: `better-sqlite3` to moduł natywny — build w obrazie docelowej architektury.
-- **Kopie zapasowe automatyczne:** harmonogram dla `npm run db:backup` (cron/zadanie systemowe/sidecar), kopia poza maszyną,
-  opis odtwarzania (jest w [MODEL-DANYCH.md](MODEL-DANYCH.md)).
+- **Docker:** zrobione (patrz README i [ARCHITEKTURA.md](ARCHITEKTURA.md)). Otwarte: publikowanie gotowego obrazu w rejestrze (GHCR) z CI, żeby serwerowi wystarczyło `docker compose pull`,
+  oraz obrazy wieloarchitekturowe (np. Raspberry Pi / NAS z ARM).
+- **Kopie zapasowe automatyczne:** harmonogram dla polecenia kopii (cron/zadanie systemowe/sidecar) i kopia poza maszyną; ręczna kopia i przywracanie są opisane w README
+  (a dla instalacji bez Dockera w [MODEL-DANYCH.md](MODEL-DANYCH.md)).
 
 ## Uwierzytelnianie i udostępnienie poza LAN
 

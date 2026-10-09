@@ -4,11 +4,10 @@ Polish version: [pl/ROADMAP.md](pl/ROADMAP.md). Nothing here is a promise — it
 
 ## Deployment
 
-- **Docker:** a multi-stage image (build the frontend and server → a runtime image `node:22-slim`/alpine with `better-sqlite3`),
-  a non-root user, a volume for `DATABASE_PATH` (e.g. `/data/todo.db`), a `HEALTHCHECK` on `/api/health`, `docker-compose.yml`.
-  Note: `better-sqlite3` is a native module — build it inside the image for the target architecture.
-- **Automatic backups:** a schedule for `npm run db:backup` (cron / system task / sidecar), an off-machine copy,
-  restore instructions (they are in [DATA-MODEL.md](DATA-MODEL.md)).
+- **Docker:** done (see the README and [ARCHITECTURE.md](ARCHITECTURE.md)). Still open: publishing a ready-made image to a registry (GHCR) from CI so that a server only needs `docker compose pull`,
+  and multi-architecture images (e.g. for a Raspberry Pi / ARM NAS).
+- **Automatic backups:** a schedule for the backup command (cron / system task / sidecar) and an off-machine copy; manual backup and restore instructions are in the README
+  (and in [DATA-MODEL.md](DATA-MODEL.md) for the non-Docker setup).
 
 ## Authentication and exposure beyond a LAN
 

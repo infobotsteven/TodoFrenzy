@@ -65,6 +65,58 @@ npm start                # Fastify serves the API and the built frontend on :300
 
 Then open http://localhost:3000.
 
+### Docker (home server)
+
+The easiest way to run TodoFrenzy permanently on a home server (Windows with Docker Desktop, Linux or a NAS). Requires Docker with Compose v2.24 or newer (current Docker Desktop is fine).
+
+```bash
+git clone https://github.com/infobotsteven/TodoFrenzy.git
+cd TodoFrenzy
+cp .env.example .env     # PowerShell: Copy-Item .env.example .env
+```
+
+1. **Edit `.env`:**
+   - set the port on the host with `TODOFRENZY_PORT=3100` (uncomment the line; the default is **3100**, so it does not clash with something else already using port 3000),
+   - set your own password instead of `admin`/`admin`: generate a hash with
+     `docker compose run --rm app node server/dist/auth-hash-cli.js "yourPassword"`
+     and paste the printed `AUTH_PASSWORD_HASH='...'` line into `.env` (keep the single quotes).
+2. **Start it:**
+   ```bash
+   docker compose up -d --build
+   ```
+   The first build takes a few minutes. Check it with `docker compose ps` (the state should become `healthy`) and `docker compose logs`.
+3. **Open it:** `http://<server-IP>:3100` from any device on your network, and log in.
+4. **Windows only:** allow the port in the firewall once (PowerShell as administrator):
+   ```powershell
+   New-NetFirewallRule -DisplayName "TodoFrenzy" -Direction Inbound -Protocol TCP -LocalPort 3100 -Profile Private -Action Allow
+   ```
+   Also reserve a fixed IP address for the server in your router, and turn on *Start Docker Desktop when you sign in* so the container comes back after a reboot (`restart: unless-stopped` does the rest).
+
+How the data is stored:
+- The database lives in the Docker volume `todofrenzy_data` and survives rebuilds and updates. (A Docker-managed volume is used on purpose: SQLite in WAL mode is unreliable on Windows host folders.)
+- Backups go to the `backups/` folder next to `docker-compose.yml`:
+  ```bash
+  docker compose exec app node server/dist/backup-cli.js
+  ```
+  Copy that folder somewhere outside the server now and then (or schedule the command with Task Scheduler / cron). To restore a backup:
+  ```bash
+  docker compose stop app
+  docker compose run --rm --no-deps app sh -c "rm -f /app/data/todo.db-wal /app/data/todo.db-shm && cp /app/backups/todo-YYYYMMDD-HHMMSS.db /app/data/todo.db"
+  docker compose start app
+  ```
+  On Linux the `backups/` folder must be writable by uid 1000 (`mkdir backups && chown 1000:1000 backups`).
+
+Everyday commands:
+
+| Command | What it does |
+|---|---|
+| `docker compose up -d --build` | start, or update after `git pull` (data is kept) |
+| `docker compose logs -f` | follow the log |
+| `docker compose restart app` | restart |
+| `docker compose down` | stop and remove the container (data stays; do **not** add `-v`, it deletes the volume) |
+
+The same HTTP-only caveat applies as above: use it on your home network, and put a reverse proxy with HTTPS (or a VPN) in front of it before exposing it outside.
+
 ### Configuration (`.env`)
 
 | Variable | Default | Meaning |
@@ -75,6 +127,7 @@ Then open http://localhost:3000.
 | `BACKUP_DIR`, `BACKUP_KEEP` | `./backups`, `14` | backup directory and number of backups kept |
 | `AUTH_USER`, `AUTH_PASSWORD_HASH` / `AUTH_PASSWORD` | `admin` / `admin` | login account (a hash is recommended) |
 | `AUTH_SESSION_SECONDS`, `AUTH_MAX_ATTEMPTS`, `AUTH_LOCK_SECONDS` | `604800`, `5`, `900` | session lifetime and lockout after failed attempts |
+| `TODOFRENZY_PORT` | `3100` | Docker only: the port exposed on the host |
 
 ### Access from a phone (local network)
 
@@ -121,6 +174,7 @@ e2e/      browser tests (Playwright) + demo data
 docs/     documentation (English in docs/, Polish in docs/pl/)
 logo/     the "Odhacz" logo (SVG/PNG)
 data/     the SQLite file (created on first run, not in git)
+Dockerfile, docker-compose.yml   container image and its run configuration (see "Docker")
 ```
 
 ## Documentation
