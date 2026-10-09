@@ -51,6 +51,8 @@ filtry przez `CalendarFilters` z nowym `FilterScope` w `store.ts`, dane przez ho
 
 - **Vite i „stary” cache modułów:** po przeniesieniu/podzieleniu plików albo zmianie importów dev-serwer bywa głuchy na zmianę
   (pusta strona, „missing export”, nowy komponent nie reaguje). Pomaga `touch` na zmienionych plikach albo restart `npm run dev`.
+- **Lockfile musi działać z npm 10 i 11:** obraz Dockera (Node 22) ma npm 10, a `package-lock.json` wygenerowany przez npm 11 może pomijać opcjonalne pakiety, których wymaga npm 10
+  (`npm ci` kończy się wtedy błędem „Missing: @emnapi/core … from lock file”). Po zmianie zależności wygeneruj go ponownie: `npx npm@10 install --package-lock-only`, a sprawdź przez `npx npm@10 ci` i `npx npm@11 ci`.
 - **Windows PowerShell 5.1:** brak `&&`; rury i tablice z `Invoke-RestMethod` bywają „rozpakowywane”; polskie znaki w konsoli wymagają
   `[Console]::OutputEncoding = UTF8`. Skrypty testowe pisz w Node, nie w PowerShellu.
 - **Logowanie w dev:** po `npm run dev` aplikacja pokazuje ekran logowania — `admin`/`admin` (bez ustawień w `.env`). Skrypty wywołujące API (np. `seed:demo`, własne) muszą się
